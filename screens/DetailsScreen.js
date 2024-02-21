@@ -2,6 +2,7 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useRoute } from '@react-navigation/native'
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Graph from '../components/Graph';
 
 export default function DetailsScreen() {
   const route=useRoute();
@@ -11,7 +12,7 @@ export default function DetailsScreen() {
     <View className="bg-black h-full">
       <View className="flex-row">
     <View className="mb-4 p-1">
-    <View className="flex-row">
+    <View className="flex-row mt-4">
         <Text className=" font-bold text-xl  text-white">{item.symbol}</Text>
         <View className="justify-center items-center ml-1">
         <AntDesign name="staro" size={18} color="white"/></View>
@@ -25,6 +26,7 @@ export default function DetailsScreen() {
         <Text className="  text-white p-1" style={{color:change > 0 ? "green" : "red"}}>{change > 0 ? "+": ""}{change}%</Text>
     </View>
     </View>
+    <Graph/>
     </View>
   )
 }
