@@ -5,17 +5,20 @@ import FontAwesome from '@expo/vector-icons/Ionicons';
 import top5 from '../data/top5.json'
 import StockListItem from '../components/StockListItem';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 const stocks=Object.values(top5)
+const onClick=function()
+{
+    navigation.navigate("Details")
+}
   return (
-    <KeyboardAvoidingView behavior='padding' className="rounded-sm">
+    <KeyboardAvoidingView behavior='padding' className="rounded-sm  bg-black">
         <SafeAreaView className='h-full'>
-           
             <View className="flex-1"> 
                <FlatList data={stocks} 
                className="mt-4"
-               renderItem={({item})=>(<StockListItem stock={item}/>)}/>
-                <View style={{backgroundColor:"#36454F"}}className="h-14 bg-gray-900 justify-center rounded-md items-center flex-row">
+               renderItem={({item})=>(<TouchableOpacity onPress={()=>navigation.navigate("Details",{item})}><StockListItem stock={item}/></TouchableOpacity>)}/>
+                <View className=" bg-gray-950 h-14 justify-center rounded-md items-center flex-row">
                     <TouchableOpacity className=" p-4 mr-32">
                     <AntDesign name="home" size={28} color="white"/>
                     </TouchableOpacity>

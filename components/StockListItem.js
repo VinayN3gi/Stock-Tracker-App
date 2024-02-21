@@ -1,15 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import AntDesign from '@expo/vector-icons/AntDesign';
 const StockListItem = ({stock}) => {
 
-
+   
   const change=Number.parseFloat(stock.percent_change).toFixed(1);  
   return (
     <View className="flex-row">
     <View className="mb-4 p-1">
     <View className="flex-row">
-        <Text className=" font-bold text-xl text-white">{stock.symbol}</Text>
+        <Text className=" font-bold text-xl  text-white">{stock.symbol}</Text>
         <View className="justify-center items-center ml-1">
         <AntDesign name="staro" size={18} color="white"/></View>
     </View>
